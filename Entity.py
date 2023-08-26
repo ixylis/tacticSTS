@@ -15,6 +15,13 @@ class Entity(pygame.sprite.Sprite):
 
     def setLocation(self, loc: HexLocation):
         self.loc = loc
+    def getLocation(self):
+        return self.loc
+    def setGrid(self, grid: HexGrid):
+        self.grid = grid
+    def getGrid(self):
+        return self.grid
+
     def move_to(self, loc: HexLocation):
         self.setLocation(loc)
         self.grid.updateLocations(self)
@@ -25,6 +32,8 @@ class Player(Entity):
         super(Player, self).__init__()
         self.surf = pygame.Surface((25, 25))
         self.surf.fill((255, 255, 255))
+    def get_surf(self):
+        return self.surf
     def get_rect(self):
         return (0, 0)
 
@@ -34,5 +43,7 @@ class Enemy(Entity):
         super(Enemy, self).__init__()
         self.surf = pygame.Surface((25, 25))
         self.surf.fill((255, 0, 0))
+    def get_surf(self):
+        return self.surf
     def get_rect(self):
         return (50, 50)
