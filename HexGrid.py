@@ -25,12 +25,14 @@ class HexGrid:
 
     def __init__(self, q_dim: int, r_dim: int):
         self.entities = [[None for r in range(r_dim)] for q in range(q_dim)]
+        self.q_dim = q_dim
+        self.r_dim = r_dim
 
     def setLocation(self, loc:HexLocation, entity: Optional[Entity]):
         self.entities[loc.q][loc.r] = entity
     
-    def get_dimentions(self):
-        return (q_dim, r_dim)
+    def get_dimensions(self):
+        return (self.q_dim, self.r_dim)
     
     def placeEntity(self, entity: Entity, loc: HexLocation):
         assert self.validLocation(loc)

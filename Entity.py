@@ -36,7 +36,7 @@ class Player(Entity):
     def __init__(self, loc: HexLocation, grid: HexGrid):
         super(Player, self).__init__(loc, grid)
         self.surf = pygame.Surface((25, 25))
-        self.surf.fill((255, 255, 255))
+        self.surf.fill((0, 0, 255))
     
     def get_surf(self):
         return self.surf
@@ -50,7 +50,7 @@ class Enemy(Entity):
     def __init__(self, loc: HexLocation, grid: HexGrid):
         super(Enemy, self).__init__(loc, grid)
         self.surf = pygame.Surface((25, 25))
-        self.surf.fill((255, 0, 0))
+        self.surf.fill((0, 255, 0))
     
     def get_surf(self):
         return self.surf
