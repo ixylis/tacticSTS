@@ -1,10 +1,12 @@
 class Entity:
-    loc: Hex
+    loc: HexLocation
+    def __init__(self, loc: HexLocation):
+        self.loc = loc
+    def move_to(self, loc: HexLocation):
+        self.loc = loc
 
-	def isNothing(self):
-		return False
+class Player(Entity):
+    pass
 
-
-class Nothing(Entity):
-	def isNothing(self):
-		return True
+class Enemy(Entity):
+    pass
