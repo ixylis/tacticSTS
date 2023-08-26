@@ -1,5 +1,7 @@
-from typing import Optional, Self
-from Entity import Entity, Nothing
+from __future__ import annotations
+from typing import Optional, Self, TYPE_CHECKING
+if TYPE_CHECKING:
+	from Entity import Entity
 
 
 class HexLocation:

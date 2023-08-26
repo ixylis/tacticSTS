@@ -1,6 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+	from HexGrid import HexGrid, HexLocation
+
 import pygame
-from HexGrid import HexGrid, HexLocation
-import abc
 
 class Entity(pygame.sprite.Sprite):
     loc: HexLocation
