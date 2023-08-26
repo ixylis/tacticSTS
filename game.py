@@ -1,28 +1,6 @@
 import pygame
 from pygame.locals import *
-
-class Character(pygame.sprite.Sprite):
-    def __init__(self):
-        super(Character, self).__init__()
-        self.q = 0
-        self.r = 0
-        self.s = 0
-    def move_to(self, coordinates: tuple):
-
-class Player(Character):
-    def __init__(self):
-        super(Player, self).__init__()
-        self.surf = pygame.Surface((25, 25))
-        self.surf.fill((255, 255, 255))
-        self.rect = (0, 0)
-
-class Enemy(Character):
-    def __init__(self):
-        super(Enemy, self).__init__()
-        self.surf = pygame.Surface((25, 25))
-        self.surf.fill((255, 0, 0))
-        self.rect = (10, 10)
-
+from Entity import Entity, Player, Enemy
 
 pygame.init()
 screen = pygame.display.set_mode([1000, 1000])
