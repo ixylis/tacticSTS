@@ -4,6 +4,11 @@ if TYPE_CHECKING:
     from Entity import Entity
 
 
+"""
+Actions are applied to the entities doing the actions through the apply method.
+
+Actions are things like "attack for 1" or "move for 1"
+"""
 class Action(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def apply(self, entity: Entity) -> bool:

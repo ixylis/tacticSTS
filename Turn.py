@@ -3,6 +3,15 @@ if TYPE_CHECKING:
     from Entity import Entity
     from Action import Action
 
+
+"""
+Turn queue holds Turns, each of which involves an Entity doing an Action.
+
+Turns may have empty Actions, which represent that the Entity has not yet decided.
+
+However, each Turn *must* have an Entity, and that Entity cannot change.
+(though Turns can be swapped)
+"""
 class TurnQueue:
     turns: list[Turn]
 
