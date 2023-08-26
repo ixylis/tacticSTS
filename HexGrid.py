@@ -26,10 +26,12 @@ class HexGrid:
 
 	def placeEntity(self, entity: Entity, loc: HexLocation):
 		assert self.validLocation(loc)
-
 		entity.setGrid(self)
 		entity.setLocation(loc)
-		self.entities[loc.q][loc.r] = entity
+		self.updateLocation(loc, entity)
 
-	def validLocation(self, loc: HexLocation):
+    def updateLocation(self, loc:HexLocation, entity: Optional[Entity]):
+        self.entities[loc.q][loc.r] = entity
+	
+    def validLocation(self, loc: HexLocation):
 		return loc.q >= 0 and loc.q < self.q_dim and loc.r >= 0 and loc.r < self.r_dim
