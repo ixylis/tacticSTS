@@ -1,4 +1,6 @@
 class Entity:
+    loc: Hex
+
 	def isNothing(self):
 		return False
 
