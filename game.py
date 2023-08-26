@@ -10,11 +10,6 @@ SCREEN_HEIGHT = 1000
 
 all_sprites = pygame.sprite.Group()
 
-player = Player()
-all_sprites.add(player)
-enemy1 = Enemy()
-all_sprites.add(enemy1)
-
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 running = True
 while running:
