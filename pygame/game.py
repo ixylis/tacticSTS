@@ -11,7 +11,6 @@ screen = pygame.display.set_mode([1000, 1000])
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 1000
 
-all_sprites: pygame.sprite.Group = pygame.sprite.Group()
 levelScene = LevelScene()
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
