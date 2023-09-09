@@ -32,15 +32,20 @@ def draw_grid(grid: HexGrid):
     cY = size
     hD = 3*size/2
     vD = math.sqrt(3)*size/2
-
     for i in range(q):
         for j in range(r):
             center = (cX+(hD*i)-(hD*j), cY+(vD*i)+(vD*j))
             draw_hexagon(surf, center, size)
+            if(grid.entities[i][j]):
+                pygame.draw.circle(surf, (0, 255, 0), center, size/2)
     return surf
 
+#Initialize Game
 hexGrid = HexGrid(3, 3)
-hexGridSurface = draw_grid(hexGrid)
+startingLocation = HexLocation(0, 0, 0)
+player = Player(startingLocation, hexGrid)
+
+
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 running = True
 
@@ -49,7 +54,8 @@ while running:
         if event.type == KEYDOWN:
             if event.key == K_ESCAPE:
                 running = False
-    screen.fill((0, 0, 0))
+    screen.fill((0, 0, 0)) 
+    hexGridSurface = draw_grid(hexGrid)
     screen.blit(hexGridSurface, (0,0))
     for entity in all_sprites:
         screen.blit(entity.surf, entity.rect)
