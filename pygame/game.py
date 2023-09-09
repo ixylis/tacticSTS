@@ -1,16 +1,18 @@
+from typing import Tuple
 import pygame
 from pygame.locals import *
 from Entity import Entity, Player, Enemy
 from HexGrid import HexGrid, HexLocation
 import math
+
 pygame.init()
 screen = pygame.display.set_mode([1000, 1000])
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 1000
 
-all_sprites = pygame.sprite.Group()
+all_sprites: pygame.sprite.Group = pygame.sprite.Group()
 
-def draw_hexagon(surf: pygame.Surface, center: (float, float), size):
+def draw_hexagon(surf: pygame.Surface, center: Tuple[float, float], size):
     centerX = center[0]
     centerY = center[1]
     corners = []
