@@ -1,9 +1,10 @@
 import pygame
 from HexGrid import HexGrid, HexLocation
 from Entity import Entity, Player, Enemy
+from Scene import Scene
 import math
 
-class LevelScene:
+class LevelScene(Scene):
     grid: HexGrid
     player: Player
 
@@ -12,7 +13,7 @@ class LevelScene:
         startingLocation = HexLocation(0, 0, 0)
         self.player = Player(startingLocation, self.grid)
         
-    def render(self, screen: pygame.Surface):
+    def render(self, screen: pygame.Surface, events: list[pygame.event.Event]):
         SCREEN_WIDTH = screen.get_width()
         SCREEN_HEIGHT = screen.get_height()
         print(SCREEN_WIDTH, SCREEN_HEIGHT)
@@ -28,6 +29,7 @@ class LevelScene:
                 self.draw_hexagon(screen, center, size)
                 if self.grid.entities[i][j]:
                     pygame.draw.circle(screen, (0, 255, 0), center, size/2)
+
     def draw_hexagon(self, screen, center, size):
         centerX = center[0]
         centerY = center[1]
